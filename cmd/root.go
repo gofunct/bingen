@@ -15,7 +15,7 @@ import (
 
 const (
 	cliName = "bingen"
-	version = "v0.1.0"
+	version = "v0.1.1"
 )
 
 var (
@@ -33,18 +33,11 @@ func init() {
 	BinCmd.PersistentFlags().BoolVar(&flagVersion, "version", false, "Print the CLI version")
 	BinCmd.PersistentFlags().BoolVarP(&flagVerbose, "verbose", "v", false, "Verbose level output")
 	BinCmd.PersistentFlags().BoolVarP(&flagHelp, "help", "h", false, "Help for the CLI")
-	BinCmd.AddCommand(genCmd)
 }
-
 
 var BinCmd = &cobra.Command{
 	Use: "bingen",
 	Short: "bingen opts",
-}
-
-var genCmd = &cobra.Command{
-	Use: "gen",
-	Short: "generate needed executables for your app",
 	Run: func(cmd *cobra.Command, args []string) {
 		var exitCode int
 
